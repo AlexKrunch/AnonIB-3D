@@ -1,0 +1,42 @@
+<div class= "post-viewer-ui-message" *ngIf="postModel && postModel.url != undefined">
+
+  <div *ngIf="(!postModelList.length  || postModelList.length == 0) && postModel != null">
+    <a href="#" onclick="return false;" (click)="reply(postModel)">>>{{postModel.id}}</a> <span *ngIf="postModel.is_canon">Δ</span>, by <i>#{{postModel.player_id}}</i><br/>
+    <div *ngIf="postModel.reply >= 0" ><i>Reply to >>{{ postModel.reply }}</i></div>
+    <div id="message-ascii ">{{postModel.message}}</div>
+    <br/>
+    <!--img id="img-preview" [src]="imgValue"/-->
+    <app-media-display *ngIf="postModel != null" class="img-preview" [url]="postModel.url" ></app-media-display>
+    <br/>
+    URL:<a placeholder="Your file url" [href]="postModel.url"> {{postModel.url}} </a><br/>
+    <i>To report content, write to monsieur.krunch@gmail.com, mentionning the ID of the post.</i><br/>
+    <button type="button" class="btn btn-secondary"  (click) = "pinPost(postModel)" >Pin the post</button><button type="button" class="btn btn-danger" (click) = "closePost()" >Close</button><br/>
+    -----------------------------------------------------<br/>
+    <div>
+      <button *ngIf="canDelete()" type="button" class="btn" (click) = "deletePost(postModel)" >Delete the post 🗑️</button>
+      <button *ngIf="isAdmin()"type="button" class="btn" (click) = "canonPost(postModel.id,postModel.map_key)" >Active or Disactive canon status Δ</button>
+      <button *ngIf="isAdmin()"type="button" class="btn" (click) = "setPostUrlToFile(postModel.id)" >Transform URL to File 🧙</button>
+      <!--button type="button" class="btn" (click) = "banPost()" >Ban user 🔨</button-->
+    </div>
+  </div>
+
+   <div *ngFor="let post of postModelList">
+    <a href="#" onclick="return false;" (click)="reply(post)">>>{{post.id}}</a> <span *ngIf="post.is_canon">Δ</span> by <i>#{{post.player_id}}</i><br/>
+    <div *ngIf="post.reply >= 0" ><i>Reply to >>{{ post.reply }}</i></div>
+    <div id="message-ascii ">{{post.message}}</div>
+    <br/>
+    <app-media-display *ngIf="post.url != null && post.url != '' " class="img-preview" [url]="post.url" ></app-media-display>
+    <br/>
+    URL:<a placeholder="Your file url" [href]="post.url"> {{post.url}} </a><br/>
+    <i>To report content, write to monsieur.krunch@gmail.com, mentionning the ID of the post.</i><br/>
+    <button type="button"  class="btn btn-secondary" (click) = "pinPost(post)" >Pin the post</button> <button type="button" class="btn btn-danger" (click) = "closePost()" >Close</button><br/>
+    -----------------------------------------------------<br/>
+    <div>
+        <button *ngIf="canDelete()" type="button" class="btn" (click) = "deletePost(post)" >Delete the post 🗑️</button>
+        <button *ngIf="isAdmin()"type="button" class="btn" (click) = "canonPost(post.id,post.map_key)" >Active or Disactive canon status Δ</button>
+        <button *ngIf="isAdmin()"type="button" class="btn" (click) = "setPostUrlToFile(post.id)" >Transform URL to File 🧙</button>
+        <!--button type="button" class="btn" (click) = "banPost()" >Ban user 🔨</button-->
+      </div>
+  </div>
+
+</div>

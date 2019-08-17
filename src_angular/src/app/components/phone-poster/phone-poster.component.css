@@ -1,0 +1,8 @@
+#container{
+    position: absolute;
+    margin: auto;
+    max-width: 650px;
+    left: 0;
+    right: 0;
+    height: 100%;
+}

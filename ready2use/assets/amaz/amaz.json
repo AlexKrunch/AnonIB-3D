@@ -1,0 +1,58 @@
+[
+    {
+        "url":"https://amzn.to/2VUOerv",
+        "picture":"https://i.pinimg.com/originals/6b/7c/fa/6b7cfa7ca8acb25025f5bf7ea0056e92.jpg",
+        "name":"Reçois le livre le très bon \"Sonny 60 years Hells Angels \" chez toi demain!",
+        "desc":"Un super bouquins d'illustration sur les hells angels des années 60!",
+        "chan": "alpha",
+        "loc": "fr"
+    },
+    {
+        "url":"https://amzn.to/2YSwn6B",
+        "picture":"./assets/amaz/come_get_it.jpg",
+        "name":"Get this book \"Come and Take It \" by the guy who 3D printed a 🔫, Cody Wilson!",
+        "desc":"Come and Take It",
+        "chan": "alpha",
+        "loc": "us"
+    },
+    {
+        "url":"https://amzn.to/2K9wu9U",
+        "picture":"https://images-na.ssl-images-amazon.com/images/I/41qdCTNSp8L._SX330_BO1,204,203,200_.jpg",
+        "name":"Get this book \"Radicals \" on crypto anarchism at home tomorow!",
+        "desc":"An awesome book on crypto anarchism",
+        "chan": "alpha",
+        "loc": "us"
+    },
+    {
+        "url":"https://amzn.to/2EAtkZg",
+        "picture":"./assets/amaz/dark_net.webp",
+        "name":"Get the only good book on the \"Dark Net\" exploring the topic in depth.",
+        "desc":"An awesome book on crypto anarchism",
+        "chan": "alpha",
+        "loc": "us"
+    },
+    {
+        "url":"https://amzn.to/2QsNIAf",
+        "picture":"./assets/amaz/joker_leto.jpg",
+        "name":"🤡 to LIVE IN A SOCIETY, get this. At your home tomorrow",
+        "desc":"Jared Leto's joker",
+        "chan": "alpha",
+        "loc": "us"
+    },
+    {
+        "url":"https://amzn.to/2W9L2NZ",
+        "picture":"https://images-na.ssl-images-amazon.com/images/I/61znu9JU9IL._UY445_.jpg",
+        "name":"No GF? Become the GF with this sailor uniform! Get it Tomorow!",
+        "desc":"A very sailor uniform cosplay.",
+        "chan": "alpha",
+        "loc": "us"
+    },
+    {
+        "url":"https://amzn.to/2QAxzJ7",
+        "picture":"./assets/amaz/joker_nolan.jpg",
+        "name":"🤡 13% of the population but 53% of the crime. By Nendoroid",
+        "desc":"Christopher Nolan's joker",
+        "chan": "alpha",
+        "loc": "us"
+    }
+]

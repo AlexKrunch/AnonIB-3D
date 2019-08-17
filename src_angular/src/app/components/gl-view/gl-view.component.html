@@ -1,0 +1,94 @@
+<div id="view-game">
+<canvas #renderCanvas id="renderCanvas" touch-action="none" tabindex="1" style="touch-action: none;"></canvas>
+
+<div id="ui-game-container">
+    <div *ngIf="!isMobile" id="mainUI" class="ui-game bgGameUI">
+    <div>
+        <div *ngIf="config" >use <b>⌨️ {{config.key_mapping}}</b> to move <button button class="btn btn-secondary  btn-sm" (click)="changeMapping()">change</button></div>
+    </div>
+
+    </div>
+
+    <span *ngIf="!currentinteraction || currentinteraction.type === 0" class="circle" id="pointerTarget"></span>
+    <span *ngIf="currentinteraction && currentinteraction.type !== 0" class="circle-hover" id="pointerTarget"></span>
+    
+    <!--MAP INTERACTION UI-->
+    <div  id="chanDisplay" *ngIf="gameDataModel.player != null && gameDataModel.map != null && gameDataModel.map.length" class="ui-game" >
+        <div >
+         <span class="bgGameUI">
+       [    <span *ngFor="let chan of chanList"><a href="{{clientURL}}ch/{{chan}}">/{{chan}}</a>  ~  </span>]
+       </span>
+        </div>
+      <h2>~/{{gameDataModel.map[0].name}}/</h2>
+   </div>
+        <div  id="pointerInteract" class="ui-game">
+
+         <div *ngIf="currentinteraction != null">
+            <button type="button" class="btn btn-dark" *ngIf="currentinteraction.type === 3 " id="openPostBtn" type="button" class="btn btn-secondary" (click)="climbLadder()">🐸 Climb</button>
+            <button type="button" class="btn btn-dark" *ngIf="currentinteraction.type === 4 " id="openPostBtn" (click)="openDoor()">🚪</button>
+            <button type="button" class="btn btn-dark" *ngIf="currentinteraction.type === 1 || currentinteraction.type === 8" id="openPostBtn" (click)="openUrl()">🔎</button>
+
+            <button type="button" class="btn btn-dark" *ngIf="gameDataModel.postsLeft > 0 && (currentinteraction.type === 1 || currentinteraction.type === 8)" id="openPostBtn" (click)="addReply(currentinteraction.value.id)">💬 Reply to <b class="reply-underline">>>{{currentinteraction.value.id}}</b> </button>
+            <button type="button" class="btn btn-dark" *ngIf="gameDataModel.postsLeft > 0 && currentinteraction.type === 2 " id="openPostingBtn"(click)=" openPostingUI()">✍️</button>
+            <button type="button" class="btn btn-dark" *ngIf="gameDataModel.postsLeft > 0 &&  (currentinteraction.type === 2 || currentinteraction.type === 8)" id="openPostingBtn" (click)=" openPaintingUI()">🎨</button>
+
+            <button type="button" class="btn btn-dark" *ngIf="currentinteraction.type === 5 " id="openPostingBtn" (click)=" getItem(currentinteraction.value.key)">🤚 Get item {{currentinteraction.value.name}} </button>
+            <button type="button" class="btn btn-dark" *ngIf="currentinteraction.type === 6 " id="openPostingBtn"(click)=" passGate(currentinteraction.value)">⛩️ Go to <b>/{{currentinteraction.value}}</b></button>
+            <button type="button" class="btn btn-dark" *ngIf="currentinteraction.type === 7 " id="openPostingBtn" (click)=" gotTo(currentinteraction.value)">More info <b>/{{currentinteraction.value}}</b></button>
+            
+        </div>
+
+        <div *ngIf="reply > -1">
+            Plan to reply to <b class="reply-underline">>>{{reply}}</b> <span (click)=" destroyReply(-1)"> 🗑️</span>
+        </div>
+
+            <div *ngFor="let item of gameDataModel.itemsPlayer">
+                +<b>{{item.name}}</b><br/>
+            </div>
+        </div>
+
+        <div id="pin-ui" >
+            <app-pin-post-ui [postModel]="pinnedPostModel"(close)="unPin($event)" class="ui-game">
+            </app-pin-post-ui>
+
+            <app-pin-post-ui *ngIf="currentinteraction != null && currentinteraction.value != null && currentinteraction.value.url != null" [postModel]="currentinteraction.value" (close)="unPin($event)" class="ui-game">
+            </app-pin-post-ui>
+
+           
+            <!--app-ad-post-ui *ngIf="adDisplay && !pinnedPostModel" id="ad-ui" class="ui-game"  (close)="closeAd($event)">
+            </app-ad-post-ui-->
+        </div>
+
+    <div *ngIf="gameDataModel != null">
+        <app-posting-ui class="fullHeightInterface" id="postingUI" *ngIf="gameState === 1" [isPhonePosting] = "false" [canvasKey]="currentinteraction.value.canvas_key" [gameDataModel]="gameDataModel" [reply]="reply" class="ui-game-frame" (onDestroyReply)="destroyReply($event)"></app-posting-ui>
+        <app-painting-ui class="fullHeightInterface"  id="postingUI" *ngIf="gameState === 4" [canvasKey]="currentinteraction.value.canvas_key" [urlBgPicture]="currentinteraction.value.url" [reply]="reply" class="ui-game-frame" (onDestroyReply)="destroyReply($event)">></app-painting-ui>
+        <app-post-viewer-ui class="fullHeightInterface" id="postingUI" *ngIf="gameState === 2" [postModel]="currentinteraction.value" (pin)="onPin($event)" [gameDataModel]="gameDataModel" class="ui-game-frame" (onReply)="addReply($event)" ></app-post-viewer-ui >
+        <app-info-view class="fullHeightInterface" id="postingUI" *ngIf="gameState === 6" class="ui-game-frame"></app-info-view>
+        <app-player-ui class="fullHeightInterface" id="postingUI" *ngIf="gameState === 9" class="ui-game-frame" [gameDataModel]="gameDataModel"></app-player-ui>
+    </div>
+
+    <div id="player-bar" *ngIf="!isMobile && gameDataModel.player != null" >
+       
+        <div id="player-bar-left" class="bgGameUI">
+            <div>#{{gameDataModel.player.id}} <span *ngIf="gameDataModel.player.is_admin"> <a href="/admin-post" target="blank_">🧠</a></span>
+            </div>
+            <!--div>Talk 💬<br/>
+                <textarea id="message-text" placeholder="talk here" [ngModel]="gameDataModel.player.talk"
+                (ngModelChange)="changeTalk($event)"></textarea>
+            </div-->
+        </div>
+        
+        <div id="player-bar-right">
+            <!--app-chat-view *ngIf="!isMobile && gameDataModel.player != null" [gameDataModel]="gameDataModel"></app-chat-view-->
+            <div>
+            <span class="bgGameUI">
+            <div>Due moderation issues post is currently limited. {{gameDataModel.postsLeft}} post(s) left.</div>
+            <a href="https://twitter.com/alexkrunch" target="blank_">🐦 Twitter</a> - <a href="http://snuffchan.com/blog/donations/" target="blank_">💰 Donations </a>
+            </span>
+            </div>
+        </div>
+       
+    </div>
+   
+
+</div>

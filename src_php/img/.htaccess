@@ -1,0 +1,6 @@
+Options +FollowSymlinks
+RewriteEngine on
+RewriteRule ^([a-z0-9-_]+).jpeg ?name=$1.jpeg
+RewriteRule ^([a-z0-9-_]+).jpg ?name=$1.jpg
+RewriteRule ^([a-z0-9-_]+).gif ?name=$1.gif
+RewriteRule ^([a-z0-9-_]+).png ?name=$1.png

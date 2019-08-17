@@ -1,0 +1,60 @@
+.post-ui-message{
+    padding : 10px;
+    margin-bottom : 18px;
+    background: rgb(189, 198, 247);
+    border-style: solid;
+    border-width: 1px;
+    border-color: #a99ec7;
+    border-radius: 5px;
+}
+
+div {
+    margin-bottom: 8px;
+}
+
+.ascii{
+    display: inline-block; 
+    font-family: "Lucida Console", Monaco, monospace;
+}
+
+textarea
+{
+  width: 100%;
+  margin: 0;
+}
+
+.post-message {
+    padding : 10px;
+    margin-bottom : 18px;
+    background: rgb(228, 221, 221);
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(131, 123, 123);
+    border-radius: 5px;
+}
+
+.post-torrent-info{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: small;
+    padding : 8px;
+    color: white;
+    background:rgb(70, 61, 56);
+    border-radius: 5px;
+}
+
+.post-message img {
+    max-width: 650px;
+    width: 100%;
+    height: auto;
+}
+
+.post-message video {
+    max-width: 650px;
+    width: 100%;
+    height: auto;
+}
+
+.post-message audio {
+    max-width: 650px;
+    width: 100%;
+}

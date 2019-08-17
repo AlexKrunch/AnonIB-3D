@@ -1,0 +1,29 @@
+.container{
+    height: 100%;
+}
+
+.post-viewer-ui-message{
+
+    position: relative;
+    top:8px;
+    bottom:18px;
+    overflow : scroll;
+    height: 85%;
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding : 10px;
+    background: rgb(247, 189, 203);
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(181, 134, 145);
+    border-radius: 5px;
+}
+
+.ascii-art {
+    font-family: monospace;
+    font-family: "Lucida Console", monospace;
+    letter-spacing: 0.2em;
+    line-height: 0.8em;
+}

@@ -1,0 +1,9 @@
+{
+    "name":"Noodle Demo",
+    "description":"Test server with Noodle-IB. ✌⊂(✰‿✰)つ✌",
+    "rules":"Your rules here.",
+    "bannerImg":"https://pbs.twimg.com/media/DmBnJhaW4AAiZtn.jpg",
+    "contact":"alexkrunch@gmail.com",
+    "isMap":false,
+    "flavours":["alpha","techno","oktaku"]
+}

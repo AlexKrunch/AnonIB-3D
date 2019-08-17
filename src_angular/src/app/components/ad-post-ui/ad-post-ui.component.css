@@ -1,0 +1,43 @@
+#container{
+    border-style                :   solid;
+    border-width                :   2px;
+    border-color                :   rgb(60, 68, 61);
+    -webkit-border-radius       :   3px;
+    -moz-border-radius          :   3px;
+    border-radius               :   3px;
+    margin: 8px
+}
+
+#close-btn{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+}
+
+#desc{
+    
+    background-image: url("/assets/img/tool_bar_bg.png");
+    background-repeat: repeat-x;
+    background-position: bottom;
+    position: absolute;
+    bottom: 0px;
+    text-align: center;
+    margin: 8px;
+    right: 0px;
+    color: aliceblue;
+    padding-top: 20px;
+    padding-right: 8px;
+    padding-left: px;
+}
+
+div {
+    max-width: 250px;
+    max-height: 250px;
+    overflow: hidden;
+}
+
+img{
+    max-width: 250px;
+    max-height: 350px;
+}

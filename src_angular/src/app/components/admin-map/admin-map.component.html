@@ -1,0 +1,44 @@
+<div class="container">
+  <a routerLink="/admin-post">Posts</a> - <a routerLink="/admin-map">Maps</a> - <a routerLink="/gl-view">Go Game!</a>
+  <div class="post-viewer-ui-message">
+      <select id="map-select" [(ngModel)]="selectedMapKey"  (change)="onChangeMap($event.target.value)">
+          <option *ngFor="let map of maps" value="{{map.key}}">{{map.name}}</option>
+      </select>
+      <br/>
+      <button (click)="moveMap(3)">Go West</button>
+      <button (click)="moveMap(0)">Go North</button>
+      <button (click)="moveMap(2)">Go South</button>
+      <button (click)="moveMap(1)">Go East</button> <br/>
+     ----------------------------------<br/>
+    <div *ngIf="selectedMap != null">
+        Map name: {{selectedMap.name}} ({{selectedMap.x}}, {{selectedMap.y}})<br/>
+        Map key: <b>{{selectedMap.key}}</b><br/>
+        Map width: {{selectedMap.width}}<br/>
+        Map height: {{selectedMap.height}}<br/>
+        ----------------------------------<br/>
+        Door North <input [(ngModel)]="selectedMap.door_key_n" /><br/>
+        Door East <input [(ngModel)]="selectedMap.door_key_e" /><br/>
+        Door South <input [(ngModel)]="selectedMap.door_key_s" /><br/>
+        Door West <input [(ngModel)]="selectedMap.door_key_w" /><br/>
+        ----------------------------------<br/>
+        <div *ngFor="let line of mapDataLines; index as y" class="ascii-art">
+          <span *ngFor="let tile of line; index as x ">
+            <app-tile-edit [tileValue] ="tile"
+            [allTiles]="allTiles"
+            [x]="x" [y]="y" (valueChange)="onChangeTileAt($event.x,$event.y)">
+          </app-tile-edit>
+          </span>
+        </div>
+
+       
+        <select id="tile-select" [(ngModel)]="selectedTileVal"  (change)="onChangeTileBrush($event.target.value)">
+            <option *ngFor="let tile of  allTiles" value="{{tile.value}}">{{tile.name}} {{tile.display}} ({{tile.value}})</option>
+        </select>
+        <button (click)="saveMap()">Save the new map</button>
+    </div>
+
+    <div *ngIf="selectedMap == null">
+    There's NOTHING here! ({{currentX}}, {{currentY}})
+    </div>
+  </div>
+</div>

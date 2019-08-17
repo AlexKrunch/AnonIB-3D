@@ -1,0 +1,10 @@
+<div id="container" *ngIf="currentURL != null">
+<div id="close-btn" (click)="closeAd()">❎</div>
+<a href="{{currentURL}}" (click)="clickAd()" target="blank_">
+  <div><img src="{{currentImg}}"/>
+    <div id="desc">
+        <b>{{currentDesc}}</b> 📦🔥
+    </div>
+  </div>
+</a>
+</div>

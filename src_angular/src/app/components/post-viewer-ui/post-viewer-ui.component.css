@@ -1,0 +1,36 @@
+.post-viewer-ui-message{
+    position:relative;
+    /*max-width: 650px;*/
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding : 10px;
+    margin-bottom : 18px;
+    background: rgb(189, 198, 247);
+    border-style: solid;
+    border-width: 1px;
+    border-color: #a99ec7;
+    border-radius: 5px;
+    height: 95%;
+    width: 100%;
+    overflow-y: auto;
+  }
+
+div {
+    margin-bottom: 8px;
+}
+
+#message-ascii {
+    max-width: 650px;
+    font-family: monospace;
+    white-space: pre;
+}
+
+::ng-deep .img-preview img, .img-preview video, .img-preview iframe, .img-preview audio {
+    max-width: 600px;
+    max-height: 400px;
+}
+
+button{
+    margin: 1px 1px 4px 1px;
+  }

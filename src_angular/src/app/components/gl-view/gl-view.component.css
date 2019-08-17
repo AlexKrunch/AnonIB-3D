@@ -1,0 +1,227 @@
+#renderCanvas{
+    width: 100%;
+    height: 100%;
+}
+
+/*
+GAME UI
+*/
+.ui-game-container{
+  z-index : 10;
+  height: 100%;
+ }
+.ui-game{
+ z-index : 10;
+}
+
+.ui-game-frame{
+  z-index : 11;
+  height: 95%;
+  width: 95%;
+ }
+
+#mainUI{
+    position:absolute;
+    top:8px;
+    left:8px;
+    color: white;
+}
+
+#titleLabel{
+    text-align: center;
+    font-size: 1em;
+}
+
+#pointerDesc{
+
+    position:absolute;
+    top:20px;
+    max-width : 200px;
+    color: white;
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+#chanDisplay{
+    position:absolute;
+    top:10px;
+    max-width :480px;
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: white;
+}
+
+#pointerInteract{
+    position:absolute;
+    bottom:10px;
+    max-width : 380px;
+    color: white;
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+#postingUI{
+    position:absolute;
+    top:20px;
+    /*max-width: 650px;*/
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: left;
+}
+
+#player-bar{
+  /*
+  background-image: url("/assets/img/tool_bar_bg.png");
+  background-repeat: repeat-x;
+  background-position: bottom;*/
+
+  background-size: 100% 100%;
+  color: rgb(206, 206, 206);
+  height: 175px;
+  width: 100%;
+  position:absolute;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  margin:8px;
+}
+
+#player-bar-right{
+  position:absolute;
+  bottom: 0px;
+  right: 0;
+  padding: 11px;
+  text-align: right;
+  margin-right:16px;
+}
+
+#player-bar-left{
+  position:absolute;
+  bottom: 0px;
+  left: 0;
+  padding: 11px;
+  text-align: left;
+}
+
+#pin-ui{
+    position:absolute;
+    top:0px;
+    right: 0;
+    max-width: 300px;
+    max-height: 300px;
+    text-align: right;
+}
+
+#ad-ui{
+  position:absolute;
+  top:0px;
+  right: 0;
+  max-width: 250px;
+  max-height: 300px;
+  text-align: right;
+}
+
+.spoil{
+    width: 100%;
+    background-color: rgb(71, 71, 71);
+    color: rgb(71, 71, 71);
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+.circle:before {
+    /*Put the element at the middle of the screen*/
+    text-align: center;
+    width: 4px;
+    height: 4px;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    content: '\25CF';
+    font-size: 10px;
+    color: white;
+    position:absolute;
+    top:50px;
+    left : 50;
+
+  }
+
+  .circle-hover:before {
+    /*Put the element at the middle of the screen*/
+    text-align: center;
+    width: 4px;
+    height: 4px;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    content: '\25CF';
+    font-size: 20px;
+    color: white;
+    position:absolute;
+    top:50px;
+    left : 50;
+
+  }
+  
+.bgGameUI{
+    border-radius: 5px;
+    background: rgba(46, 46, 46, 0.9);
+    font-size: 12px;
+    padding: 5px;
+}
+.chat-ui{
+    position:absolute;
+    border-radius: 5px;
+    background: rgba(46, 46, 46, 0.9);
+    bottom:10px;
+    left: 20px;
+    width: 300px;
+    height: 255px;
+    padding: 10px; 
+}
+
+.info-button-ui{
+  position:absolute;
+  bottom:10px;
+  left: 10px;
+  color: white;
+}
+
+  .fullHeightInterface{
+    
+    height: 90%;
+   /* overflow-y: auto;*/
+  }
+
+  button{
+    margin: 1px 1px 4px 1px;
+  }
+
+/* Trash */
+  #gamepadCanvas{
+    position:absolute;
+    bottom:20px;
+    right :20px;
+    width: 200px;
+    height: 200px;
+    color: white;
+    background-color: rgb(41, 41, 41);
+}
+
+.reply-underline{
+  color: rgb(0, 110, 255);
+  text-decoration: underline;
+}

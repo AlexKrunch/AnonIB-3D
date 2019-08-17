@@ -1,0 +1,37 @@
+<div class="post-ui-message">
+
+<div id="canvas-left">
+<canvas #paintingCanvas id="painting-board"
+    height="460px" width="460px"
+    touch-action="none" tabindex="1" style="touch-action: none;">
+    <!--(document:mousemove)="canvasMouseMove( $event )"-->
+</canvas>
+</div>
+
+<div id="tool-right">
+<button (click)="changeColor(colorRed)">Red</button>
+<button (click)="changeColor(colorBlack)">Black</button>
+<button (click)="changeColor(colorWhite)">White</button>
+<button (click)="changeColor(colorPink)">Pink</button><br/>
+<button (click)="changeColor(colorGreen)">Green</button>
+<button (click)="changeColor(colorBrown)">Brown</button>
+<button (click)="changeColor(colorPurple)">Purple</button><br/>
+<button (click)="changeColor(colorYellow)">Yellow</button>
+<button (click)="changeColor(colorBlue)">Blue</button><br/>
+Pick a color: <input type="color" [(ngModel)]="curColor"><br/>
+<input type="range" name="points" min="5" max="100" [(ngModel)]="strokeSize">
+<div id="brush-size"
+    [style.width]="strokeSize+'px'"
+    [style.height]="strokeSize+'px'"> </div>
+<br/>
+<button (click)="clear()">Clear</button><br/>
+
+<div *ngIf="reply >= 0" ><i>reply to >>{{ reply }}</i> <span (click)=" destroyReply()"> 🗑️</span></div>
+Message: <br/>
+<textarea id="message-text" placeholder="Your text" [(ngModel)]="postModel.message" ></textarea><br/>
+<button (click)="sendImg()" class="btn btn-primary">Paint the art!</button>
+<button (click)="closeCanvas()" class="btn btn-danger">Close</button>
+
+</div>
+
+</div>

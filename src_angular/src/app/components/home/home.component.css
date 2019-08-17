@@ -1,0 +1,41 @@
+.container{
+    /*background-image: 
+    linear-gradient( rgba(0,0,0,.5), rgba(0, 0, 0, 0.6) ),
+    url("/assets/img/home_bg.jpeg");*/
+    padding: 25px;
+    /*overflow: scroll;*/
+    -webkit-overflow-scrolling: touch;
+    color: white;
+    text-align: center;
+}
+
+div {
+    margin-bottom: 8px;
+}
+
+
+.overlay {
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    overflow: auto;
+    top: 0px;
+    left: 0px;
+    background: rgba(0, 0, 0, 0.7); /*can be anything, of course*/
+}
+
+#pres-screen {
+
+    width : 100%;
+    text-align: center;
+}
+
+#header {
+    color: white;
+}
+
+#twitter {
+    width:550px;
+    margin: 20px auto;
+}

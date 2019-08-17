@@ -1,0 +1,13 @@
+<div *ngIf="url != null && url != ''">
+<img *ngIf="urlParse.getUrlType() === 1 || urlParse.getUrlType() === 2" [src]="url"/>
+
+<audio *ngIf="urlParse.getUrlType() === 5" controls="controls">
+  <source [src]="url" type="audio/mp3" />
+</audio>
+
+<video *ngIf="urlParse.getUrlType() === 3" controls="controls">
+  <source [src]="url" type="video/mp4" />
+</video>
+
+<iframe *ngIf="urlParse.getUrlType() === 4" [src]="safeTubeURL" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>

@@ -1,0 +1,19 @@
+#commandPrompt{
+    background-color: black;
+    color: green;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: left;
+    height: 100%;
+    padding: 2px;
+}
+
+#commandInput{
+    color: black;
+    background-color: green;
+    width:100%;
+    border: none;
+}
+
+::placeholder { /* Firefox, Chrome, Opera */ 
+    color: white; 
+} 

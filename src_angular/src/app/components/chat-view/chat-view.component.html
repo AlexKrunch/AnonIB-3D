@@ -1,0 +1,18 @@
+<div id="container">
+  <div class="bgChatUI">
+  <div *ngIf="gameDataModel.actions != undefined && gameDataModel.actions.length">
+  <div *ngFor="let action of gameDataModel.actions, let index = index;">
+  <br/>
+   <span
+   class="bgLineUI"
+   *ngIf="index > gameDataModel.actions.length-6"
+   [ngStyle]="{'color': (action.player_id == gameDataModel.player.id) ? 'rgb(239, 147, 162)' : 'white' }">
+    <b>#{{action.player_id}} <span *ngIf="action.player_id == gameDataModel.player.id">(you)</span></b>{{action.value}}<br/></span>
+  </div>
+  </div>
+</div>
+<div class="inputChat input-group">
+      <input class="form-control mr-sm-2" [(ngModel)]="messageToPost" type="text" placeholder="Talk here.">
+      <button class="btn btn-secondary my-2 my-sm-0" (click)="postMessage()">send</button>
+</div>
+</div>

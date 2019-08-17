@@ -1,0 +1,10 @@
+<button (click)="close()" >Close</button>
+<div id="commandPrompt">
+  /dungeon/users/anon$<br/>
+  <input id="commandInput" type="text" placeholder="" [(ngModel)]="commandTyped" placeholder=">type command here_">
+  <button (click)="sendCMD()">send</button>
+  <br/>
+  <div>
+    <div *ngFor="let reply of commandReplies">{{reply}}</div>
+  </div>
+</div>

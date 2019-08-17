@@ -1,0 +1,23 @@
+.post-viewer-ui-message{
+    position:relative;
+    /*max-width: 650px;*/
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding : 10px;
+    margin-bottom : 18px;
+    background: rgb(247, 189, 225);
+    border-style: solid;
+    border-width: 1px;
+    border-color: #c79eb7;
+    border-radius: 5px;
+    height: 95%;
+    width: 100%;
+    overflow-y: auto;
+  }
+
+.spoil{
+    width: 100%;
+    background-color: rgb(71, 71, 71);
+    color: rgb(71, 71, 71);
+}

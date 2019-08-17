@@ -1,0 +1,38 @@
+.container{
+    height: 100%;
+}
+
+.post-viewer-ui-message{
+
+    position: relative;
+    top:8px;
+    bottom:18px;
+    overflow : scroll;
+    height: 85%;
+    /*max-width: 450px;*/
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding : 10px;
+    background: rgb(247, 189, 203);
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(181, 134, 145);
+    border-radius: 5px;
+}
+
+img{
+    max-width:150px;
+    max-height:150px;
+}
+
+/*
+div {
+    margin-bottom: 8px;
+}*/
+
+::ng-deep .img-preview img, .img-preview video, .img-preview iframe, .img-preview audio {
+    max-width: 600px;
+    max-height: 400px;
+}

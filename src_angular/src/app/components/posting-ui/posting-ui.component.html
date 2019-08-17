@@ -1,0 +1,53 @@
+<div class= "post-ui-message">
+
+    <div *ngIf="!isLoading && !postingFinished">
+    <!--  {{canvasKey}}<br/>
+    <Name: <br/>
+    <input id="message-name" placeholder="Anonymous" [(ngModel)]="postModel.name" ><br/>-->
+    <div *ngIf="reply >= 0" ><i>reply to >>{{ reply }}</i>  <span (click)="destroyReply()"> 🗑️</span></div>
+    Message: <br/>
+    <textarea id="message-text" placeholder="Your text" [(ngModel)]="postModel.message" ></textarea>
+    <br/>
+
+    <div *ngIf="canUpload()">
+      <input  #messageHost id="message-host" type="checkbox"  [checked]="hostFile" (change)="changeHost(messageHost.checked)" >Host on chan<br/>
+    </div>
+    <img *ngIf="postModel.url != null && !hostFile" class="img-preview" [src]="urlParse.setUrl(postModel.url).getImage()"><br/>
+    <img *ngIf="fileBase64Url != null && hostFile" class="img-preview" [src]="fileBase64Url"><br/>
+    
+
+    <div *ngIf="!hostFile && !isPhonePosting">
+    File URL: <br/>
+    <input id="file-url" type="url" placeholder="Your file url" [(ngModel)]="postModel.url" ><br/>
+    </div>
+    
+    <div *ngIf="hostFile || isPhonePosting">
+    File From the computer: <br/>
+    <input #file id="file" name="file" type="file" accept='image/*' (change)="preview(file.files)" /><br/>
+
+    <a href="{{getPhoneLink()}}" target="blank_">Open phone posting link!</a><br/>
+    <qrcode [qrdata]="getPhoneLink()" [size]="256" [level]="'M'"></qrcode><br/>
+
+    </div>
+
+    <!--Is the post NSFW: <input type="checkbox" [(ngModel)]="postModel.nsfw"><br/-->
+    <button type="submit" type="button" class="btn btn-primary" (click) = "sendPost()" >Post</button>
+    <button type="button" class="btn btn-danger" (click) = "cancelPost()" >Cancel</button>
+
+  </div>
+
+  <div *ngIf="isLoading">
+    Posting in progress..
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped bg-primary" role="progressbar" style="width: 100%; height: 100%;"
+        aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+  </div>
+
+  <div *ngIf="!isLoading && postingFinished">
+    Your message has been posted! thanks for your contribution!
+  </div>
+
+  
+
+ </div>

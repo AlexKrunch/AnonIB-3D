@@ -1,0 +1,32 @@
+<div class="container">
+  <a routerLink="/admin-post">Posts</a> - <a routerLink="/admin-map">Maps</a> - <a routerLink="/ch/alpha">Go Game!</a>
+<div class="post-viewer-ui-message">
+
+  <input [(ngModel)]="valToDelete"> <button (click)="deleteVal()">Delete</button>    ---------    <button type="button" class="btn btn-primary" (click)="updatePost()">update</button>
+  <div *ngFor="let post of posts| paginate: { itemsPerPage: 20, currentPage: p }">
+      N° {{post.id}} <span *ngIf="post.is_canon">👌</span><br/>
+      Player: {{post.player_id}}<br/>
+      IP: {{post.player_ip}}<br/>
+      CHAN: <span class="badge badge-light">{{post.map_key}}</span><br/>
+
+      <img src="{{post.url}}"/>
+      Url: <a href="{{post.url}}">{{post.url}}</a><br/>
+      Message: {{post.message}}<br/>
+      
+       <div *ngIf="post.was_deleted"> 
+      <div class="alert alert-danger" role="alert">
+      Thanks, post has been succesfuly  DELETED!
+      </div>
+      </div>
+
+      <div *ngIf="!post.was_deleted">
+
+        <button type="button" class="btn btn-success"  (click) = "canonPost(post.id,post.map_key)" >Active or Disactive canon status 👌</button><br/>
+        <button type="button" class="btn btn-warning" (click) = "deletePost(post)" >Delete the post 🗑️</button><br/>
+        <button type="button" class="btn btn-danger" (click) = "setBan(post.id)" >Ban user 🔨</button><br/>
+      </div>
+      -----------------------------------------<br/>
+    </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>

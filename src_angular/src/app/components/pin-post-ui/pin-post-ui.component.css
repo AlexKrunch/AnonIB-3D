@@ -1,0 +1,4 @@
+::ng-deep .img-pin img, .img-pin video, .img-pin iframe, .img-pin audio {
+    max-width: 300px;
+    max-height: 300px;
+}

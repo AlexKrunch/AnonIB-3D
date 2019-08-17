@@ -1,0 +1,48 @@
+<div id="contentLogin" role="alert">
+
+<div *ngIf="isLoading">
+    Try to get a player token...
+</div>
+
+  <div class="alert alert-danger" role="alert" *ngIf="!isTOSAccepted">
+    <b>-We do not allow CP / Non-ironical hatespeech / porn / doxxing / pirated content.</b><br/>
+    -You need to be +18 to access this game.<br/>
+    -Don't  trust anythings written on the game, it's all fake news.<br/>
+    -Don't talk about the game.<br/>
+    -Keep in mind t's an experimental project, it will be often broke. For more information contact monsieur.krunch@gmail.com,
+    or check my twitter account, <a href="https://twitter.com/alexkrunch" target="blank_">@AlexKrunch</a>🚬<br/>
+    <button (click)="acceptTOS()" type="button" class="btn btn-danger">OK, I get it</button>
+    </div>
+
+<div class="form-signin" *ngIf="playerData == null && isTOSAccepted" class="alert alert-primary" >
+ <div class="input-group">
+    <div class="input-group-prepend">
+       <span class="input-group-text">ID</span>
+    </div>
+    <input type="text" class="form-control" [(ngModel)]= "anonId" placeholder="ID">
+  </div>
+  <div class="input-group">
+    <div class="input-group-prepend">
+       <span class="input-group-text">Token</span>
+    </div>
+    <input type="text" class="form-control" [(ngModel)]= "anonToken" placeholder="token">
+  </div>
+  <div>
+    <button (click)="createUser()" type="button" class="btn btn-primary">Existing User</button> or <button (click)="createNewUser()" type="button" class="btn btn-primary">New User</button><br/>
+  </div>
+  <div class="form-label-group">
+    <input type="password"  [(ngModel)]= "password" id="inputPassword" class="form-control" placeholder="Password (optional)">
+  </div>
+</div>
+
+<div *ngIf="playerData != null" class="alert alert-primary" >
+  What you get.. <br/>
+  Player ID #{{playerData.id}} <span *ngIf="playerData.is_admin">🧠</span><br/>
+  Player token <b>{{playerData.player_key}}</b>
+  <br/>
+  <button (click) = "validAndLaunchGame()" class="btn btn-primary">Launch game 🎮</button>
+        <button *ngIf="playerData.is_admin" (click) = "validAndLaunchAdmin()" class="btn btn-primary">Launch admin</button>
+        <button (click)="playerData = null" class="btn btn-secondary">Cancel</button>
+</div>
+
+</div>

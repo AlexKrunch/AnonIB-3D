@@ -1,0 +1,19 @@
+<div class="post-viewer-ui-message">
+  
+  <div><b> You are 👺 #{{gameDataModel.player.id}}  <span *ngIf="gameDataModel.player.is_admin">🧠</span>
+    💉 HP: {{gameDataModel.player.hp}}% </b></div>
+  <div><b>token 🗝️ <span class="spoil">{{gameDataModel.player.player_key}}</span></b></div>
+  <i>If you want to play on the new machine, just copy and past this ID and Token and enter them when you reconnect.</i>
+  <br/>
+  <div>🎒 inventory, the items you own</div>
+  ------------------------------------------<br/>
+  <div *ngFor="let item of gameDataModel.itemsPlayer">
+    <b>💍 {{item.name}}</b>
+      quantity: {{item.value}}<br/>
+      action: {{item.action}}<br/>
+      description: {{item.description}}<br/>
+  </div>
+  ------------------------------------------<br/>
+
+  <button type="button" class="btn btn-danger" (click) = "close()" >Close</button>
+</div>
